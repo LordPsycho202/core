@@ -11,6 +11,7 @@ from homeassistant.components.recorder import get_instance, history
 from homeassistant.const import (
     ATTR_UNIT_OF_MEASUREMENT,
     CONF_SENSORS,
+    CONF_UNIQUE_ID,
     LIGHT_LUX,
     PERCENTAGE,
     STATE_OK,
@@ -87,6 +88,7 @@ SCHEMA_SENSORS = vol.Schema(
 PLANT_SCHEMA = vol.Schema(
     {
         vol.Required(CONF_SENSORS): vol.Schema(SCHEMA_SENSORS),
+        vol.Optional(CONF_UNIQUE_ID): cv.string,
         vol.Optional(
             CONF_MIN_BATTERY_LEVEL, default=DEFAULT_MIN_BATTERY_LEVEL
         ): cv.positive_int,
